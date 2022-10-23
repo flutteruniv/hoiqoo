@@ -27,7 +27,7 @@ class _SaitoState extends State<Saito> {
           children: [
             // TODO: 自分の名前を今より大きく表示してください
             const Text("テスト"),
-            // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
+            // TODO: 自分のslackアイコンを正方形で画面横幅の半分の大きさで表示してください
             Image.asset("assets/images/icon.png"),
           ]
         ),
