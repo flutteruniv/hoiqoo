@@ -41,7 +41,10 @@ class _OdenState extends State<Oden> {
                         ),
                       ),
                       // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
-                      Image.asset("assets/images/icon.png"),
+                      Image.asset(
+                        "assets/images/oden_icon.jpg",
+                        width: MediaQuery.of(context).size.width / 2,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
