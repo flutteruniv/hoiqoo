@@ -34,7 +34,12 @@ class _OdenState extends State<Oden> {
                         child: Text('上'),
                       ),
                       // TODO: 自分の名前を今より大きく表示してください
-                      const Text("テスト"),
+                      const Text(
+                        "おでん",
+                        style: TextStyle(
+                          fontSize: 32,
+                        ),
+                      ),
                       // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
                       Image.asset("assets/images/icon.png"),
                       Row(
