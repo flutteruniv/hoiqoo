@@ -23,7 +23,7 @@ class _TakasuState extends State<Takasu> {
       // TODO: 画面の背景色をグレーにしてください
       body: Center(
         child: Column(
-          // TODO: 各要素を画面の上下左右中央に配置してください
+          // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
             children: [
               // TODO: 自分の名前を今より大きく表示してください
               const Text("テスト"),
