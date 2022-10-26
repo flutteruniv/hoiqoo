@@ -23,46 +23,24 @@ class _OdenState extends State<Oden> {
       // TODO: 画面の背景色をグレーにしてください
       body: ColoredBox(
         color: Colors.grey,
-        child: Stack(
-          children: [
-            Center(
-              child: Column(
-                  // TODO: 各要素を画面の上下左右中央に配置してください
-                  children: [
-                    // TODO: 自分の名前を今より大きく表示してください
-                    const Text(
-                      "おでん",
-                      style: TextStyle(
-                        fontSize: 64,
-                      ),
-                    ),
-                    // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
-                    Image.asset(
-                      "assets/images/oden_icon.jpg",
-                      width: MediaQuery.of(context).size.width / 2,
-                    ),
-                  ]),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Center(
+          child: Column(
+              // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Center(
-                  child: Text('上'),
+                // TODO: 自分の名前を今より大きく表示してください
+                const Text(
+                  "おでん",
+                  style: TextStyle(
+                    fontSize: 64,
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('左'),
-                    Text('中央'),
-                    Text('右'),
-                  ],
+                // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
+                Image.asset(
+                  "assets/images/oden_icon.jpg",
+                  width: MediaQuery.of(context).size.width / 2,
                 ),
-                const Center(
-                  child: Text('下'),
-                ),
-              ],
-            ),
-          ],
+              ]),
         ),
       ),
     );
