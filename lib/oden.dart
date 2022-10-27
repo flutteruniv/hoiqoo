@@ -16,20 +16,31 @@ class _OdenState extends State<Oden> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(widget.label, style: const TextStyle(fontSize: 18)),
-          centerTitle: true,
-          elevation: 0.5,
+        title: Text(widget.label, style: const TextStyle(fontSize: 18)),
+        centerTitle: true,
+        elevation: 0.5,
       ),
       // TODO: 画面の背景色をグレーにしてください
-      body: Center(
-        child: Column(
-          // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
-            children: [
-              // TODO: 自分の名前を今より大きく表示してください
-              const Text("テスト"),
-              // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
-              Image.asset("assets/images/icon.png"),
-            ]
+      body: ColoredBox(
+        color: Colors.grey,
+        child: Center(
+          child: Column(
+              // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // TODO: 自分の名前を今より大きく表示してください
+                const Text(
+                  "おでん",
+                  style: TextStyle(
+                    fontSize: 64,
+                  ),
+                ),
+                // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
+                Image.asset(
+                  "assets/images/oden_icon.jpg",
+                  width: MediaQuery.of(context).size.width / 2,
+                ),
+              ]),
         ),
       ),
     );
