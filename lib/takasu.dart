@@ -26,7 +26,7 @@ class _TakasuState extends State<Takasu> {
       body: Center(
         child: Column(
             // TODO: 各要素を画面の上下左右中央に配置してください
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // TODO: 自分の名前を今より大きく表示してください
               const Text(
