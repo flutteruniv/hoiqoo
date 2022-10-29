@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'hoiqoo App',
+      title: 'hoiq Ap',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
