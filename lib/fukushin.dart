@@ -38,7 +38,6 @@ class _FukushinState extends State<Fukushin> {
               // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
               Image.network('https://ca.slack-edge.com/T012UQWDRQC-U03738ZNU04-1cfb65560f49-512',
               width: MediaQuery.of(context).size.width / 2,
-//                width: double.infinity,
             ),
           ]),
       ),
