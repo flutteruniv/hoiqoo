@@ -22,8 +22,8 @@ class _FukushinState extends State<Fukushin> {
       ),
       // TODO: 画面の背景色をグレーにしてください
       body: ColoredBox(
-        color:Colors.grey,
-        child:Center(
+        color: Colors.grey,
+        child: Center(
          child: Column(
           // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
             mainAxisAlignment: MainAxisAlignment.center,
