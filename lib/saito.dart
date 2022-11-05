@@ -34,8 +34,8 @@ class _SaitoState extends State<Saito> {
           children: [
                 // TODO: 自分の名前を今より大きく表示してください
                 const Text("齊藤泰知",
-                     style: TextStyle(
-                          fontSize: 90,
+                  style: TextStyle(
+                  fontSize: 90,
         ),
                 ),
 
@@ -44,8 +44,8 @@ class _SaitoState extends State<Saito> {
                   width: screenSize.width*0.5,
                   height: screenSize.width*0.5,
                     child: FittedBox(
-                        fit: BoxFit.fill,
-                        child: Image.asset("assets/images/saito_icon.jpeg"))),
+                    fit: BoxFit.fill,
+                    child: Image.asset("assets/images/saito_icon.jpeg"))),
               ],
         ),
       ),
