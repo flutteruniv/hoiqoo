@@ -24,7 +24,7 @@ class _FukushinState extends State<Fukushin> {
       body: ColoredBox(
         color: Colors.grey,
         child: Center(
-         child: Column(
+          child: Column(
           // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -33,15 +33,17 @@ class _FukushinState extends State<Fukushin> {
                 "フクシン",
                 style: TextStyle(
                   fontSize: 66,
-                  ),
+                ),
                 ),
               // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
               Image.network('https://ca.slack-edge.com/T012UQWDRQC-U03738ZNU04-1cfb65560f49-512',
-              width: MediaQuery.of(context).size.width / 2,
-            ),
-          ]),
+                width: MediaQuery.of(context).size.width / 2,
+              ),
+            ]
+          ),
+        ),
       ),
-    ),
+
     );
   }
 }
