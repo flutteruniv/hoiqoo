@@ -25,7 +25,7 @@ class _FukushinState extends State<Fukushin> {
         color: Colors.grey,
         child: Center(
           child: Column(
-              // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
+            // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // TODO: 自分の名前を今より大きく表示してください
