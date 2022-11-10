@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "419055932139",
+    "project_id": "hoiqoo-e29a1",
+    "storage_bucket": "hoiqoo-e29a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419055932139:android:a4a19152340454cc4aa4ae",
+        "android_client_info": {
+          "package_name": "com.hoiqoo.hoiqoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419055932139-khpoo48ft05uv5borugqhhpj5mb1hpak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnLY_yYXu-D3f9o6wSbkZ4a7p_j0_zGAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419055932139-khpoo48ft05uv5borugqhhpj5mb1hpak.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "419055932139-82ig2mo6qq08rpd96eg406ja32c2qinq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hoiqoo.hoiqoo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
