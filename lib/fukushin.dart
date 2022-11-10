@@ -21,17 +21,29 @@ class _FukushinState extends State<Fukushin> {
           elevation: 0.5,
       ),
       // TODO: 画面の背景色をグレーにしてください
-      body: Center(
-        child: Column(
-          // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
+      body: ColoredBox(
+        color: Colors.grey,
+        child: Center(
+          child: Column(
+            // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // TODO: 自分の名前を今より大きく表示してください
-              const Text("テスト"),
+              const Text(
+                "フクシン",
+                style: TextStyle(
+                  fontSize: 63,
+                ),
+              ),
               // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
-              Image.asset("assets/images/icon.png"),
+              Image.network('https://ca.slack-edge.com/T012UQWDRQC-U03738ZNU04-1cfb65560f49-512',
+                width: MediaQuery.of(context).size.width / 2,
+              ),
             ]
+          ),
         ),
       ),
+
     );
   }
 }
