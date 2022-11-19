@@ -27,11 +27,18 @@ class JobTabPage extends StatelessWidget {
           appBar: AppBar(
             bottom: const TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.directions_car)),
-                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(text: 'リスト', icon: Icon(Icons.access_time_filled_sharp)),
+                Tab(text: 'カレンダー', icon: Icon(Icons.calendar_month_outlined)),
               ],
             ),
-            title: const Text('タブバー'),
+            title: Text('hoiqoo'),
+            backgroundColor: Colors.white10,
+            actions: [
+              IconButton(
+                icon: Icon(Icons.notifications),
+                onPressed: () => {},
+              ),
+            ],
           ),
           body: TabBarView(
             children: [

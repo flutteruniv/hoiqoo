@@ -8,10 +8,16 @@ class JobListPage extends StatelessWidget {
     return Scaffold(
       // AppBarを表示し、タイトルも設定
       appBar: AppBar(
-          title: const Text('ジョブリスト一覧'),
-          backgroundColor: Colors.red,
+          title: const Text(
+            'ジョブリスト一覧',
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white60,
           actions: [
-            Icon(Icons.contact_support),
+            Icon(
+              Icons.notifications,
+              color: Colors.red,
+            ),
           ]),
       // ListViewを使いリスト一覧を表示
       body: ListView(
@@ -41,12 +47,6 @@ class JobListPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // --- 省略 ---
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
