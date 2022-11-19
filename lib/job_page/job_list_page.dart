@@ -13,12 +13,7 @@ class JobListPage extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white60,
-          actions: [
-            Icon(
-              Icons.notifications,
-              color: Colors.red,
-            ),
-          ]),
+          actions: []),
       // ListViewを使いリスト一覧を表示
       body: ListView(
         children: <Widget>[
