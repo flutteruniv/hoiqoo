@@ -1,6 +1,7 @@
 // CORE
 import 'dart:core';
 import 'package:flutter/material.dart';
+import 'package:hoiqoo/search_page.dart';
 
 class Oden extends StatefulWidget {
   const Oden({Key? key, required this.label}) : super(key: key);
@@ -28,12 +29,18 @@ class _OdenState extends State<Oden> {
               // TODO: childrenに含まれる各要素を画面の上下左右中央に配置してください
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const SearchPage();
+                      }));
+                    },
+                    child: const Text('検索画面へ')),
                 // TODO: 自分の名前を今より大きく表示してください
-                const Text(
+                Text(
                   "おでん",
-                  style: TextStyle(
-                    fontSize: 64,
-                  ),
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
                 // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
                 Image.asset(
