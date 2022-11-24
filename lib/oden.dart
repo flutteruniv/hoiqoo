@@ -1,7 +1,7 @@
 // CORE
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:hoiqoo/search_page.dart';
+import 'package:hoiqoo/search/search_view.dart';
 
 class Oden extends StatefulWidget {
   const Oden({Key? key, required this.label}) : super(key: key);
@@ -33,7 +33,7 @@ class _OdenState extends State<Oden> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const SearchPage();
+                        return const SearchView();
                       }));
                     },
                     child: const Text('検索画面へ')),
