@@ -14,7 +14,7 @@ class Offer {
     required this.deadlineTime,
   });
 
-  String offerId;
+  int offerId;
   DateTime createdAt;
   DateTime updatedAt;
   DateTime startAt;
