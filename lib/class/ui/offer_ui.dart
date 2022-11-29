@@ -7,10 +7,9 @@ class OfferUi with _$OfferUi {
   const factory OfferUi({
     required int offerId,
     required String enterpriseName,
-    required DateTime startAt,
-    required DateTime endAt,
+    required String workingHours,
     required String address,
-    required int remuneration,
+    required String remuneration,
     required List<String> tags,
     required String profileImageUrl,
   }) = _OfferUi;
