@@ -84,18 +84,14 @@ class SearchView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           for (final tag in offerUi.tags)
-                            Row(
-                              children: [
-                                Text(
-                                  tag,
-                                  style: const TextStyle(
-                                    color: Color(0xFFF08784),
-                                  ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8),
+                              child: Text(
+                                tag,
+                                style: const TextStyle(
+                                  color: Color(0xFFF08784),
                                 ),
-                                const SizedBox(
-                                  width: 8,
-                                )
-                              ],
+                              ),
                             ),
                         ],
                       )
