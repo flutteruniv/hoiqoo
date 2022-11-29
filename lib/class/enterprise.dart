@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
 // TODO freezed導入したい
 class Enterprise {
@@ -14,5 +14,5 @@ class Enterprise {
   DateTime createdAt;
   DateTime updatedAt;
   String name;
-  Image profileImage;
+  File profileImage;
 }
