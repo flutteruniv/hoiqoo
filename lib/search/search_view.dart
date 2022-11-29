@@ -10,7 +10,13 @@ class SearchView extends StatelessWidget {
     final List<OfferUi> offerUiList = [
       OfferUiMockData.data1,
       OfferUiMockData.data2,
-      OfferUiMockData.data3
+      OfferUiMockData.data3,
+      OfferUiMockData.data1,
+      OfferUiMockData.data2,
+      OfferUiMockData.data3,
+      OfferUiMockData.data1,
+      OfferUiMockData.data2,
+      OfferUiMockData.data3,
     ];
 
     return Scaffold(
