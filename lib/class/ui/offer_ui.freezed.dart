@@ -18,10 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$OfferUi {
   int get offerId => throw _privateConstructorUsedError;
   String get enterpriseName => throw _privateConstructorUsedError;
-  DateTime get startAt => throw _privateConstructorUsedError;
-  DateTime get endAt => throw _privateConstructorUsedError;
+  String get workingHours => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  int get remuneration => throw _privateConstructorUsedError;
+  String get remuneration => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
   String get profileImageUrl => throw _privateConstructorUsedError;
 
@@ -37,10 +36,9 @@ abstract class $OfferUiCopyWith<$Res> {
   $Res call(
       {int offerId,
       String enterpriseName,
-      DateTime startAt,
-      DateTime endAt,
+      String workingHours,
       String address,
-      int remuneration,
+      String remuneration,
       List<String> tags,
       String profileImageUrl});
 }
@@ -60,8 +58,7 @@ class _$OfferUiCopyWithImpl<$Res, $Val extends OfferUi>
   $Res call({
     Object? offerId = null,
     Object? enterpriseName = null,
-    Object? startAt = null,
-    Object? endAt = null,
+    Object? workingHours = null,
     Object? address = null,
     Object? remuneration = null,
     Object? tags = null,
@@ -76,14 +73,10 @@ class _$OfferUiCopyWithImpl<$Res, $Val extends OfferUi>
           ? _value.enterpriseName
           : enterpriseName // ignore: cast_nullable_to_non_nullable
               as String,
-      startAt: null == startAt
-          ? _value.startAt
-          : startAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endAt: null == endAt
-          ? _value.endAt
-          : endAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      workingHours: null == workingHours
+          ? _value.workingHours
+          : workingHours // ignore: cast_nullable_to_non_nullable
+              as String,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -91,7 +84,7 @@ class _$OfferUiCopyWithImpl<$Res, $Val extends OfferUi>
       remuneration: null == remuneration
           ? _value.remuneration
           : remuneration // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       tags: null == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -114,10 +107,9 @@ abstract class _$$_OfferUiCopyWith<$Res> implements $OfferUiCopyWith<$Res> {
   $Res call(
       {int offerId,
       String enterpriseName,
-      DateTime startAt,
-      DateTime endAt,
+      String workingHours,
       String address,
-      int remuneration,
+      String remuneration,
       List<String> tags,
       String profileImageUrl});
 }
@@ -134,8 +126,7 @@ class __$$_OfferUiCopyWithImpl<$Res>
   $Res call({
     Object? offerId = null,
     Object? enterpriseName = null,
-    Object? startAt = null,
-    Object? endAt = null,
+    Object? workingHours = null,
     Object? address = null,
     Object? remuneration = null,
     Object? tags = null,
@@ -150,14 +141,10 @@ class __$$_OfferUiCopyWithImpl<$Res>
           ? _value.enterpriseName
           : enterpriseName // ignore: cast_nullable_to_non_nullable
               as String,
-      startAt: null == startAt
-          ? _value.startAt
-          : startAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endAt: null == endAt
-          ? _value.endAt
-          : endAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      workingHours: null == workingHours
+          ? _value.workingHours
+          : workingHours // ignore: cast_nullable_to_non_nullable
+              as String,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -165,7 +152,7 @@ class __$$_OfferUiCopyWithImpl<$Res>
       remuneration: null == remuneration
           ? _value.remuneration
           : remuneration // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       tags: null == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -184,8 +171,7 @@ class _$_OfferUi implements _OfferUi {
   const _$_OfferUi(
       {required this.offerId,
       required this.enterpriseName,
-      required this.startAt,
-      required this.endAt,
+      required this.workingHours,
       required this.address,
       required this.remuneration,
       required final List<String> tags,
@@ -197,13 +183,11 @@ class _$_OfferUi implements _OfferUi {
   @override
   final String enterpriseName;
   @override
-  final DateTime startAt;
-  @override
-  final DateTime endAt;
+  final String workingHours;
   @override
   final String address;
   @override
-  final int remuneration;
+  final String remuneration;
   final List<String> _tags;
   @override
   List<String> get tags {
@@ -216,7 +200,7 @@ class _$_OfferUi implements _OfferUi {
 
   @override
   String toString() {
-    return 'OfferUi(offerId: $offerId, enterpriseName: $enterpriseName, startAt: $startAt, endAt: $endAt, address: $address, remuneration: $remuneration, tags: $tags, profileImageUrl: $profileImageUrl)';
+    return 'OfferUi(offerId: $offerId, enterpriseName: $enterpriseName, workingHours: $workingHours, address: $address, remuneration: $remuneration, tags: $tags, profileImageUrl: $profileImageUrl)';
   }
 
   @override
@@ -227,8 +211,8 @@ class _$_OfferUi implements _OfferUi {
             (identical(other.offerId, offerId) || other.offerId == offerId) &&
             (identical(other.enterpriseName, enterpriseName) ||
                 other.enterpriseName == enterpriseName) &&
-            (identical(other.startAt, startAt) || other.startAt == startAt) &&
-            (identical(other.endAt, endAt) || other.endAt == endAt) &&
+            (identical(other.workingHours, workingHours) ||
+                other.workingHours == workingHours) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.remuneration, remuneration) ||
                 other.remuneration == remuneration) &&
@@ -242,8 +226,7 @@ class _$_OfferUi implements _OfferUi {
       runtimeType,
       offerId,
       enterpriseName,
-      startAt,
-      endAt,
+      workingHours,
       address,
       remuneration,
       const DeepCollectionEquality().hash(_tags),
@@ -260,10 +243,9 @@ abstract class _OfferUi implements OfferUi {
   const factory _OfferUi(
       {required final int offerId,
       required final String enterpriseName,
-      required final DateTime startAt,
-      required final DateTime endAt,
+      required final String workingHours,
       required final String address,
-      required final int remuneration,
+      required final String remuneration,
       required final List<String> tags,
       required final String profileImageUrl}) = _$_OfferUi;
 
@@ -272,13 +254,11 @@ abstract class _OfferUi implements OfferUi {
   @override
   String get enterpriseName;
   @override
-  DateTime get startAt;
-  @override
-  DateTime get endAt;
+  String get workingHours;
   @override
   String get address;
   @override
-  int get remuneration;
+  String get remuneration;
   @override
   List<String> get tags;
   @override
