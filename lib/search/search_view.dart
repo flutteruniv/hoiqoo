@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hoiqoo/class/ui/offer_ui.dart';
+import 'package:hoiqoo/mock_data/offer_ui_mock_data.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final List<OfferUi> offerUiList = [
+      OfferUiMockData.data1,
+      OfferUiMockData.data2,
+      OfferUiMockData.data3
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('募集をさがす'),
@@ -22,11 +30,11 @@ class SearchView extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
-                //TODO MediaQuery使いたい
                 childAspectRatio: 4 / 5,
               ),
-              itemCount: 6,
+              itemCount: offerUiList.length,
               itemBuilder: (context, index) {
+                final offerUi = offerUiList[index];
                 return Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -42,8 +50,8 @@ class SearchView extends StatelessWidget {
                         child: SizedBox(
                           height: 120,
                           width: double.infinity,
-                          child: Image.asset(
-                            "assets/images/oden_icon.jpg",
+                          child: Image.network(
+                            offerUi.profileImageUrl,
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -52,35 +60,43 @@ class SearchView extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        'スーパー保育園',
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                      Text(
-                        '2022/11/14 10:00 - 13:00',
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                      Text(
-                        'カリフォルニア州',
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                      Text(
-                        '¥5,000',
-                        style: Theme.of(context).textTheme.subtitle1,
+                        offerUi.enterpriseName,
                       ),
                       const SizedBox(
-                        height: 8,
+                        height: 4,
+                      ),
+                      Text(
+                        offerUi.workingHours,
+                      ),
+                      Text(
+                        offerUi.address,
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        offerUi.remuneration,
+                      ),
+                      const SizedBox(
+                        height: 4,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            '#交通費支給',
-                            // NOTE: 桃色のテキストをtextThemeで定義したほうが良さそう
-                            style:
-                                Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      color: const Color(0xFFF08784),
-                                    ),
-                          )
+                          for (final tag in offerUi.tags)
+                            Row(
+                              children: [
+                                Text(
+                                  tag,
+                                  style: const TextStyle(
+                                    color: Color(0xFFF08784),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                )
+                              ],
+                            ),
                         ],
                       )
                     ],
