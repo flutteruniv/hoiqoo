@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 // TODO freezed導入したい
 class OfferUi {
   OfferUi({
@@ -10,7 +8,7 @@ class OfferUi {
     required this.address,
     required this.remuneration,
     required this.tags,
-    required this.profileImage,
+    required this.profileImageUrl,
   });
 
   int offerId;
@@ -20,5 +18,5 @@ class OfferUi {
   String address;
   String remuneration;
   List<String> tags;
-  Image profileImage;
+  String profileImageUrl;
 }
