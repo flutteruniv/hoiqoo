@@ -7,7 +7,7 @@ class OfferUiMockData {
       workingHours: '2022/11/25 12:00~15:00',
       address: '千葉県松戸市希望が丘 1-12-3',
       remuneration: '¥5,000',
-      tags: ['交通費支給', '昼食支給'],
+      tags: ['#交通費支給', '#昼食支給'],
       profileImageUrl:
           'https://www.tenryu-kohseikai.or.jp/media/14nagisa-top01.jpg');
 
@@ -17,7 +17,7 @@ class OfferUiMockData {
       workingHours: '2022/11/25 12:00~17:00',
       address: '千葉県市川市未来区 3-2-12',
       remuneration: '¥8,000',
-      tags: ['駐車場あり', '駐輪場あり'],
+      tags: ['#駐車場あり', '#駐輪場あり'],
       profileImageUrl:
           'https://choukyuu.ed.jp/kirakira/wp-content/themes/kirakira/images/top/img_intro.jpg');
 
