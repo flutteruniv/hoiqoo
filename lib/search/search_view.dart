@@ -76,15 +76,17 @@ class SearchView extends StatelessWidget {
                       ),
                       Text(
                         offerUi.address,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
                         height: 4,
                       ),
                       Text(
                         offerUi.remuneration,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
-                        height: 4,
+                        height: 8,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
