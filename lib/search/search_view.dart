@@ -113,7 +113,7 @@ class SearchView extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: const Color(0xFFF08784),
+        backgroundColor: const Color(0xFFF08784).withOpacity(0.9),
         icon: const Icon(Icons.search_rounded),
         label: const Text('日付・条件を選択する'),
         onPressed: () {},
