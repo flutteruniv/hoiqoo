@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hoiqoo/messages_page.dart';
 import './saito.dart';
 import './oden.dart';
 import './takasu.dart';
@@ -53,14 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
             const Nav(page: Oden(label: 'おでん'), label: "おでん"),
             const Nav(page: Takasu(label: '高須'), label: "高須"),
             const Nav(page: Fukushin(label: 'フクシン'), label: "フクシン"),
-            // messages pageに移動するためのボタン
-            // 後で削除する
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MessagesPage()));
-                },
-                child: Text('messages page')),
           ],
         ),
       ),

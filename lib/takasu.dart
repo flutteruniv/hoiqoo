@@ -1,6 +1,7 @@
 // CORE
 import 'dart:core';
 import 'package:flutter/material.dart';
+import 'package:hoiqoo/messages_page.dart';
 
 class Takasu extends StatefulWidget {
   const Takasu({Key? key, required this.label}) : super(key: key);
@@ -29,6 +30,15 @@ class _TakasuState extends State<Takasu> {
             const Text("テスト"),
             // TODO: 自分のslackアイコンを画面横幅の半分の大きさで表示してください
             Image.asset("assets/images/icon.png"),
+            // messages pageに移動するためのボタン
+            // 後で削除する
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MessagesPage()));
+              },
+              child: const Text('messages page'),
+            ),
           ],
         ),
       ),
