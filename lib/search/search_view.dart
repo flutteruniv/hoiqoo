@@ -41,71 +41,7 @@ class SearchView extends StatelessWidget {
               itemCount: offerUiList.length,
               itemBuilder: (context, index) {
                 final offerUi = offerUiList[index];
-                return Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          topRight: Radius.circular(16),
-                        ),
-                        child: SizedBox(
-                          height: 120,
-                          width: double.infinity,
-                          child: Image.network(
-                            offerUi.profileImageUrl,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        offerUi.enterpriseName,
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        offerUi.workingHours,
-                      ),
-                      Text(
-                        offerUi.address,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        offerUi.remuneration,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          for (final tag in offerUi.tags)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8),
-                              child: Text(
-                                tag,
-                                style: const TextStyle(
-                                  color: Color(0xFFF08784),
-                                ),
-                              ),
-                            ),
-                        ],
-                      )
-                    ],
-                  ),
-                );
+                return OfferCard(offerUi: offerUi);
               },
             ),
             const SizedBox(
@@ -121,6 +57,84 @@ class SearchView extends StatelessWidget {
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+}
+
+class OfferCard extends StatelessWidget {
+  const OfferCard({
+    Key? key,
+    required this.offerUi,
+  }) : super(key: key);
+
+  final OfferUi offerUi;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      color: Colors.white,
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            ),
+            child: SizedBox(
+              height: 120,
+              width: double.infinity,
+              child: Image.network(
+                offerUi.profileImageUrl,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            offerUi.enterpriseName,
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            offerUi.workingHours,
+          ),
+          Text(
+            offerUi.address,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            offerUi.remuneration,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for (final tag in offerUi.tags)
+                Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Text(
+                    tag,
+                    style: const TextStyle(
+                      color: Color(0xFFF08784),
+                    ),
+                  ),
+                ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
