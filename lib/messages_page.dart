@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-// メッセージ一覧ページ
-class MessagesPage extends StatelessWidget {
-  const MessagesPage({super.key});
+// チャットルーム 一覧ページ
+class ChatRoomsPage extends StatelessWidget {
+  const ChatRoomsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,31 +15,31 @@ class MessagesPage extends StatelessWidget {
       ),
       body: Column(
         children: const [
-          MessagesList(), //メッセージ一覧
+          ChatRoomsList(), //メッセージ一覧
         ],
       ),
     );
   }
 }
 
-// メッセージのリスト
-// riverpodでメッセージ一覧を取得し、メッセージのリストを作成
-class MessagesList extends StatelessWidget {
-  const MessagesList({super.key});
+// チャットルームのリスト
+// riverpodでチャットルーム一覧を取得し、チャットルームのリストを作成
+class ChatRoomsList extends StatelessWidget {
+  const ChatRoomsList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Messageデータを取得（本番では、riverpodで取得する）
-    // 今は仮のMessageデータを作成
-    final List<MockMessage> messages = <MockMessage>[
-      MockMessage(
+    // ChatRoomデータを取得（本番では、riverpodで取得する）
+    // 今は仮のChatRoomデータを作成
+    final List<MockChatRoom> chatRooms = <MockChatRoom>[
+      MockChatRoom(
         id: 0,
         image: 'assets/images/icon.png',
         name: 'あおぞら保育園',
         content: '最寄りは初台駅で良いでしょうか',
         timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
       ),
-      MockMessage(
+      MockChatRoom(
         id: 1,
         image: 'assets/images/icon.png',
         name: 'にじいろ保育園',
@@ -47,7 +47,7 @@ class MessagesList extends StatelessWidget {
         timestamp:
             (DateTime.now().millisecondsSinceEpoch - 86400000).toString(),
       ),
-      MockMessage(
+      MockChatRoom(
         id: 2,
         image: 'assets/images/icon.png',
         name: 'おひさま保育園',
@@ -55,7 +55,7 @@ class MessagesList extends StatelessWidget {
         timestamp:
             (DateTime.now().millisecondsSinceEpoch - 17280000).toString(),
       ),
-      MockMessage(
+      MockChatRoom(
         id: 3,
         image: 'assets/images/icon.png',
         name: 'ほしぞら保育園',
@@ -67,38 +67,38 @@ class MessagesList extends StatelessWidget {
 
     return Expanded(
       child: ListView.builder(
-        itemCount: messages.length,
+        itemCount: chatRooms.length,
         itemBuilder: (BuildContext context, int index) {
-          return MessageBuildItem(message: messages[index]);
+          return ChatRoomBuildItem(chatRoom: chatRooms[index]);
         },
       ),
     );
   }
 }
 
-// メッセージ(ListTile)
-// メッセージモデルを引数に取ってItemを構築する
-// ListTileをタップしたら、メッセージ詳細画面に遷移したい
-class MessageBuildItem extends StatelessWidget {
-  const MessageBuildItem({super.key, required this.message});
+// チャットルーム(ListTile)
+// チャットルームモデルを引数に取ってItemを構築する
+// ListTileをタップしたら、チャットルーム詳細画面に遷移したい
+class ChatRoomBuildItem extends StatelessWidget {
+  const ChatRoomBuildItem({super.key, required this.chatRoom});
 
-  final MockMessage message;
+  final MockChatRoom chatRoom;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       // [TODO]:keyつけたい
-      leading: Image.asset(message.image),
+      leading: Image.asset(chatRoom.image),
       title: Text(
-        message.name,
+        chatRoom.name,
       ),
       subtitle: Text(
-        message.content,
+        chatRoom.content,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
       trailing: Text(
-        getTime(message.timestamp),
+        formatTimestamp(chatRoom.timestamp),
       ),
       isThreeLine: true,
     );
@@ -106,13 +106,13 @@ class MessageBuildItem extends StatelessWidget {
 }
 
 // タイムスタンプをフォーマットして、
-// メッセージ一覧に表示する日付の文字列を返す
+// チャットルーム一覧に表示する日付の文字列を返す
 // (例)
 // ・24時間以内のメッセージ -> 10:24AM
 // ・24時間〜48時間のメッセージ -> 昨日
 // ・48時間〜１年のメッセージ -> 11月15日
 // ・１年〜のメッセージ -> 2021年5月15日
-String getTime(String timestamp) {
+String formatTimestamp(String timestamp) {
   DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp));
   int millisecondsFromNow = dateTime
       .difference(DateTime.now())
@@ -137,10 +137,10 @@ String getTime(String timestamp) {
       .format(DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp)));
 }
 
-// メッセージクラス(仮)
-// メッセージ一覧に表示するメッセージに必要最低限の要素を定義
-class MockMessage {
-  const MockMessage({
+// チャットルームクラス(仮)
+// チャットルーム一覧に表示するチャットルームに必要最低限の要素を定義
+class MockChatRoom {
+  const MockChatRoom({
     required this.id,
     required this.image,
     required this.name,
