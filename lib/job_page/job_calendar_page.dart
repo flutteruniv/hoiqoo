@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 void main() {
-  runApp(const JobCalendarPage());
+  runApp(
+    const JobCalendarPage(),
+  );
 }
 
 class JobCalendarPage extends StatelessWidget {
@@ -34,11 +36,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Map<DateTime, List> _eventsList = {};
 
-  DateTime _focused = DateTime.now();
+  DateTime _focused = DateTime.now(); //_focusedが今日を示めす
   DateTime? _selected;
+  final daynumber = 1000000;
+  final monthnumber = 1000;
 
   int getHashCode(DateTime key) {
-    return key.day * 1000000 + key.month * 10000 + key.year;
+    return key.day * daynumber + key.month * monthnumber + key.year;
   }
 
   @override
@@ -64,38 +68,50 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          backgroundColor: Colors.white38,
-        ),
-        body: Column(children: [
+      appBar: AppBar(
+        title: Text(widget.title),
+        backgroundColor: Colors.white38,
+      ),
+      body: Column(
+        children: [
           TableCalendar(
-            firstDay: DateTime.utc(2022, 4, 1),
-            lastDay: DateTime.utc(2025, 12, 31),
-            eventLoader: getEvent, //追記
+            firstDay: DateTime(_focused.year, _focused.month, 1),
+            lastDay: DateTime(_focused.year + 10, _focused.month, 1),
+            eventLoader: getEvent,
+            //追記/*//*/
             selectedDayPredicate: (day) {
               return isSameDay(_selected, day);
             },
             onDaySelected: (selected, focused) {
               if (!isSameDay(_selected, selected)) {
-                setState(() {
-                  _selected = selected;
-                  _focused = focused;
-                });
+                setState(
+                  () {
+                    _selected = selected;
+                    _focused = focused;
+                  },
+                );
               }
             },
             focusedDay: _focused,
           ),
           //--追記--------------------------------------------------------------
-          ListView(
-            shrinkWrap: true,
-            children: getEvent(_selected!)
-                .map((event) => ListTile(
-                      title: Text(event.toString()),
-                    ))
-                .toList(),
-          )
+          NewbuildListView(getEvent)
           //--------------------------------------------------------------------
-        ]));
+        ],
+      ),
+    );
+  }
+
+  ListView NewbuildListView(List<dynamic> getEvent(DateTime day)) {
+    return ListView(
+      shrinkWrap: true,
+      children: getEvent(_selected!)
+          .map(
+            (event) => ListTile(
+              title: Text(event.toString()),
+            ),
+          )
+          .toList(),
+    );
   }
 }

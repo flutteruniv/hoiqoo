@@ -14,6 +14,7 @@ void main() => runApp(
 class TabInfo {
   String label;
   Widget widget;
+
   TabInfo(this.label, this.widget);
 }
 
@@ -28,17 +29,19 @@ class JobTabPage extends StatelessWidget {
             bottom: const TabBar(
               tabs: [
                 Tab(
-                    text: 'リスト',
-                    icon: Icon(
-                      Icons.access_time_filled_sharp,
-                      color: Colors.black54,
-                    )),
+                  text: 'リスト',
+                  icon: Icon(
+                    Icons.access_time_filled_sharp,
+                    color: Colors.black54,
+                  ),
+                ),
                 Tab(
-                    text: 'カレンダー',
-                    icon: Icon(
-                      Icons.calendar_month_outlined,
-                      color: Colors.black54,
-                    )),
+                  text: 'カレンダー',
+                  icon: Icon(
+                    Icons.calendar_month_outlined,
+                    color: Colors.black54,
+                  ),
+                ),
               ],
             ),
             leading: Image.asset('images/guratan_katakata 1.jpg'),

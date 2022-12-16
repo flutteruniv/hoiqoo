@@ -2,46 +2,61 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+List<Color> colorList = [Colors.cyan, Colors.deepOrange, Colors.indigo];
+List<String> workplace = ['おりひめ保育園', 'ひこぼし保育園', 'ジャガイモ保育園', 'サラダこども園'];
+List<String> workplacepic = [
+  'images/orihime.jpg',
+  'images/hikobosi.jpeg',
+  'images/hikobosi.jpeg',
+  'images/hikobosi.jpeg'
+];
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('ListView.builder'),
+      centerTitle: true,
+    ),
+    body: ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          height: 80,
+          color: colorList[index % colorList.length],
+        );
+      },
+    ),
+  );
+}
+
 class JobListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBarを表示し、タイトルも設定
       appBar: AppBar(
-          title: const Text(
-            'ジョブリスト一覧',
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white60,
-          actions: []),
+        title: const Text(
+          'ジョブリスト一覧',
+//            style: Theme.of(context).textTheme.bodyText2,
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white60,
+        actions: [],
+      ),
       // ListViewを使いリスト一覧を表示
-      body: ListView(
-        children: <Widget>[
-          // *** 追加する部分 ***
-          // CardとListTileを使い、簡単に整ったUIを作成
-          Card(
-            child: ListTile(
-              title: Text('おりひめ保育園'),
-              leading: Image.asset('images/orihime.jpg'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text('ひこぼし保育園'),
-              leading: Image.asset('images/hikobosi.jpeg'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text('ジャガイモを買う'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text('カレールーを買う'),
-            ),
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: workplace.length, //
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            children: [
+              ListTile(
+                title: Text(workplace[index]),
+                leading: Image.asset(workplacepic[index]),
+              ),
+              Divider()
+            ],
+          );
+        },
       ),
     );
   }
