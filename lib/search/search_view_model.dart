@@ -54,8 +54,9 @@ class SearchViewModel {
 
     // UIで表示する形式に変換
     final converter = ref.watch(converterProvider);
-    final workingHours = converter.toWorkingHours(offer.startAt, offer.endAt);
-    final remuneration = converter.toStrRemuneration(offer.remuneration);
+    final workingHours =
+        converter.convertWorkingHoursForUi(offer.startAt, offer.endAt);
+    final remuneration = converter.convertRemunerationForUi(offer.remuneration);
 
     return OfferUi(
       offerId: offer.id,
@@ -74,7 +75,7 @@ class SearchViewModel {
     for (final offerTag in offerTagList) {
       final tag =
           await ref.watch(tagRepositoryProvider).fetchTagById(offerTag.offerId);
-      tagNameList.add(tag.name);
+      tagNameList.add('#${tag.name}');
     }
     return tagNameList;
   }
