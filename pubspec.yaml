@@ -52,6 +52,8 @@ dev_dependencies:
   flutter_riverpod: ^2.1.1
   build_runner: ^2.3.2
   freezed: ^2.2.1
+  # 数字のカンマ区切りを実装するために使用
+  intl: ^0.18.0
   json_serializable: ^6.5.4
 
 # For information on the generic Dart part of this file, see the
