@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hoiqoo/class/ui/offer_ui.dart';
-import 'package:hoiqoo/mock_data/offer_ui_mock_data.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SearchView extends StatelessWidget {
+import '../class/ui/offer_ui.dart';
+import 'search_view_model.dart';
+
+class SearchView extends ConsumerWidget {
   const SearchView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final List<OfferUi> offerUiList = [
-      OfferUiMockData.data1,
-      OfferUiMockData.data2,
-      OfferUiMockData.data3,
-      OfferUiMockData.data1,
-      OfferUiMockData.data2,
-      OfferUiMockData.data3,
-      OfferUiMockData.data1,
-      OfferUiMockData.data2,
-      OfferUiMockData.data3,
-    ];
+  Widget build(BuildContext context, WidgetRef ref) {
+    final offerUiListAsyncValue = ref.watch(offerUiListProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -29,21 +21,30 @@ class SearchView extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: ListView(
           children: [
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                childAspectRatio: 4 / 5,
-              ),
-              itemCount: offerUiList.length,
-              itemBuilder: (context, index) {
-                final offerUi = offerUiList[index];
-                return OfferCard(offerUi: offerUi);
-              },
-            ),
+            offerUiListAsyncValue.when(data: (data) {
+              final offerUiList = data;
+              return GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                  childAspectRatio: 4 / 5,
+                ),
+                itemCount: offerUiList.length,
+                itemBuilder: (context, index) {
+                  final offerUi = offerUiList[index];
+                  return OfferCard(offerUi: offerUi);
+                },
+              );
+            }, error: (_, error) {
+              return Text(
+                error.toString(),
+              );
+            }, loading: () {
+              return const CircularProgressIndicator();
+            }),
             const SizedBox(
               height: 64,
             )
