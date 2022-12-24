@@ -1,4 +1,7 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+
+final converterProvider = Provider<Converter>((ref) => Converter());
 
 class Converter {
   // 勤務時間をUIで表示する形式に変換する
