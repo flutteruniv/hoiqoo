@@ -26,6 +26,7 @@ mixin _$Enterprise {
   @JsonKey(name: 'updated_at')
   DateTime get updatedAt => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'profile_image_url')
   String get profileImageUrl => throw _privateConstructorUsedError;
 
@@ -46,6 +47,7 @@ abstract class $EnterpriseCopyWith<$Res> {
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime updatedAt,
       String name,
+      String address,
       @JsonKey(name: 'profile_image_url') String profileImageUrl});
 }
 
@@ -66,6 +68,7 @@ class _$EnterpriseCopyWithImpl<$Res, $Val extends Enterprise>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? name = null,
+    Object? address = null,
     Object? profileImageUrl = null,
   }) {
     return _then(_value.copyWith(
@@ -84,6 +87,10 @@ class _$EnterpriseCopyWithImpl<$Res, $Val extends Enterprise>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as String,
       profileImageUrl: null == profileImageUrl
           ? _value.profileImageUrl
@@ -106,6 +113,7 @@ abstract class _$$_EnterpriseCopyWith<$Res>
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime updatedAt,
       String name,
+      String address,
       @JsonKey(name: 'profile_image_url') String profileImageUrl});
 }
 
@@ -124,6 +132,7 @@ class __$$_EnterpriseCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? name = null,
+    Object? address = null,
     Object? profileImageUrl = null,
   }) {
     return _then(_$_Enterprise(
@@ -143,6 +152,10 @@ class __$$_EnterpriseCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
       profileImageUrl: null == profileImageUrl
           ? _value.profileImageUrl
           : profileImageUrl // ignore: cast_nullable_to_non_nullable
@@ -159,6 +172,7 @@ class _$_Enterprise implements _Enterprise {
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'updated_at') required this.updatedAt,
       required this.name,
+      required this.address,
       @JsonKey(name: 'profile_image_url') required this.profileImageUrl});
 
   factory _$_Enterprise.fromJson(Map<String, dynamic> json) =>
@@ -175,12 +189,14 @@ class _$_Enterprise implements _Enterprise {
   @override
   final String name;
   @override
+  final String address;
+  @override
   @JsonKey(name: 'profile_image_url')
   final String profileImageUrl;
 
   @override
   String toString() {
-    return 'Enterprise(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, profileImageUrl: $profileImageUrl)';
+    return 'Enterprise(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, address: $address, profileImageUrl: $profileImageUrl)';
   }
 
   @override
@@ -194,14 +210,15 @@ class _$_Enterprise implements _Enterprise {
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address) &&
             (identical(other.profileImageUrl, profileImageUrl) ||
                 other.profileImageUrl == profileImageUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, createdAt, updatedAt, name, profileImageUrl);
+  int get hashCode => Object.hash(
+      runtimeType, id, createdAt, updatedAt, name, address, profileImageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -225,6 +242,7 @@ abstract class _Enterprise implements Enterprise {
       @JsonKey(name: 'updated_at')
           required final DateTime updatedAt,
       required final String name,
+      required final String address,
       @JsonKey(name: 'profile_image_url')
           required final String profileImageUrl}) = _$_Enterprise;
 
@@ -241,6 +259,8 @@ abstract class _Enterprise implements Enterprise {
   DateTime get updatedAt;
   @override
   String get name;
+  @override
+  String get address;
   @override
   @JsonKey(name: 'profile_image_url')
   String get profileImageUrl;
