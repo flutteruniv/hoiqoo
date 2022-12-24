@@ -12,6 +12,7 @@ class Enterprise with _$Enterprise {
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') required DateTime updatedAt,
     required String name,
+    required String address,
     @JsonKey(name: 'profile_image_url') required String profileImageUrl,
   }) = _Enterprise;
 
