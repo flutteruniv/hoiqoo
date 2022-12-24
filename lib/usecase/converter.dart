@@ -19,4 +19,9 @@ class Converter {
     final formatter = NumberFormat("¥#,###");
     return formatter.format(remuneration);
   }
+
+  // タグ名をUIで表示する形式に変換する
+  String convertTagNameForUi(String tagName) {
+    return ('#$tagName');
+  }
 }

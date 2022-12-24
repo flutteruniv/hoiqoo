@@ -71,11 +71,14 @@ class SearchViewModel {
 
   // repositoryで取得したデータからtag名のListを作成する
   Future<List<String>> _createTagNameList(List<OfferTag> offerTagList) async {
+    final converter = ref.watch(converterProvider);
     final tagNameList = <String>[];
+
     for (final offerTag in offerTagList) {
       final tag =
           await ref.watch(tagRepositoryProvider).fetchTagById(offerTag.offerId);
-      tagNameList.add('#${tag.name}');
+      final tagName = converter.convertTagNameForUi(tag.name);
+      tagNameList.add(tagName);
     }
     return tagNameList;
   }

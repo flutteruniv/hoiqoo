@@ -46,4 +46,11 @@ void main() {
       expect(result, '¥99,999');
     });
   });
+
+  group('convertTagNameForUi()のテスト', () {
+    test('', () {
+      final result = converter.convertTagNameForUi('交通費支給');
+      expect(result, '#交通費支給');
+    });
+  });
 }
