@@ -9,7 +9,7 @@ final mockOfferTagRepositoryProvider =
 
 class MockOfferTagRepository extends OfferTagBaseRepository {
   @override
-  Future<List<OfferTag>> fetchOfferTagsByOfferId(int offerId) {
+  Future<List<OfferTag>> fetchOfferTagListByOfferId(int offerId) {
     final offerTagMockData = OfferTagMockData();
     final offerTagList = <OfferTag>[
       offerTagMockData.data1,

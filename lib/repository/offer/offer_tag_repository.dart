@@ -8,5 +8,5 @@ final offerTagRepositoryProvider = Provider<OfferTagBaseRepository>(
 
 abstract class OfferTagBaseRepository {
   // 引数のofferIdを含むOfferTagを返す
-  Future<List<OfferTag>> fetchOfferTagsByOfferId(int offerId);
+  Future<List<OfferTag>> fetchOfferTagListByOfferId(int offerId);
 }
