@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import './saito.dart';
-import './oden.dart';
-import './takasu.dart';
+
 import './fukushin.dart';
+import './oden.dart';
+import './saito.dart';
+import './takasu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,12 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.all(40),
-              child: const Text('hoiqoo スキルテスト', style: TextStyle(fontSize: 24)),
+              child:
+                  const Text('hoiqoo スキルテスト', style: TextStyle(fontSize: 24)),
             ),
-            const Nav(page: Saito(label: '齋藤'), label: "齋藤"),
+            const Nav(page: Saito(label: '新規登録'), label: "登録するで"),
             const Nav(page: Oden(label: 'おでん'), label: "おでん"),
-            const Nav(page: Takasu(label: '高須'), label: "高須"),
-            const Nav(page: Fukushin(label: 'フクシン'), label: "フクシン"),
+            const Nav(page: Takasu(label: 'ログイン'), label: "ログインするよ"),
+            const Nav(page: Fukushin(label: 'リスト'), label: "リストするばい"),
           ],
         ),
       ),
@@ -60,7 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Nav extends StatelessWidget {
   const Nav({
-    Key? key, required this.page, required this.label,
+    Key? key,
+    required this.page,
+    required this.label,
   }) : super(key: key);
 
   final Widget page;
@@ -70,14 +74,14 @@ class Nav extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context){
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
           return page;
         }));
       },
       child: Container(
         margin: const EdgeInsets.all(20),
         width: MediaQuery.of(context).size.width * 0.8,
-        height: MediaQuery.of(context).size.width* 0.15,
+        height: MediaQuery.of(context).size.width * 0.15,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           border: Border.all(
