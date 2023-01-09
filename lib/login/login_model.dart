@@ -8,7 +8,7 @@ class LoginModel extends ChangeNotifier {
   String? email;
   String? password;
 
-  bool isLoading=false;
+  bool isLoading = false;
 
   void startLoading() {
     isLoading = true;
@@ -20,21 +20,21 @@ class LoginModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setEmail(String email){
-    this.email = email;//画面上のTechをTechとして認識
+  void setEmail(String email) {
+    this.email = email; //面上のメールアドレスをemailとして認識
     notifyListeners();
   }
 
-  void setPassword(String password){
-    this.password = password;//画面上のStageをStageとして認識
+  void setPassword(String password) {
+    this.password = password; //画面上のパスワードをPasswordとして認識
     notifyListeners();
   }
 
-  Future signup() async{
-    this.email=techController.text;
-    this.password=stageController.text;
+  Future signup() async {
+    this.email = techController.text;
+    this.password = stageController.text;
 
-    if (email !=null && password !=null) {
+    if (email != null && password != null) {
       //ログイン
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email!, password: password!);
