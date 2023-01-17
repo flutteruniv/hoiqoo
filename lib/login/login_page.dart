@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hoiqoo/job_page/job_tab_page.dart';
 import 'package:provider/provider.dart';
 
 import '../register/register_page.dart';
@@ -56,11 +57,12 @@ class LoginPage extends StatelessWidget {
                         await model.signup();
 
                         //Navigator.pop(context);//画面遷移
-                        Navigator.of(context).pop();
-                        //画面遷移
+                        Navigator.of(context).push(MaterialPageRoute(
+                            // （2） 実際に表示するページ(ウィジェット)を指定する
+                            builder: (context) => JobTabPage()));
                       } catch (e) {
                         final snackBar = SnackBar(
-                          backgroundColor: Colors.red,
+                          backgroundColor: Colors.yellow,
                           content: Text(e.toString()),
                         );
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);

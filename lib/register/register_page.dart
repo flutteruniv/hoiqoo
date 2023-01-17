@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hoiqoo/login/login_page.dart';
 import 'package:hoiqoo/register/register_model.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +53,11 @@ class RegisterPage extends StatelessWidget {
                           // 追加の処理
                           try {
                             await model.signUp();
-                            Navigator.of(context).pop();
+                            Navigator.of(context).push(MaterialPageRoute(
+                                // （2） 実際に表示するページ(ウィジェット)を指定する
+                                builder: (context) => LoginPage(
+                                    //    aemail: model.email, apassword: model.password
+                                    )));
                           } catch (e) {
                             final snackBar = SnackBar(
                               backgroundColor: Colors.red,

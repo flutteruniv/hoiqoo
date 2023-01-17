@@ -9,7 +9,7 @@ class RegisterModel extends ChangeNotifier {
   String? email;
   String? password;
 
-  bool isLoading=false;
+  bool isLoading = false;
 
   void startLoading() {
     isLoading = true;
@@ -21,35 +21,34 @@ class RegisterModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setEmail(String email){
-    this.email = email;//画面上のTechをTechとして認識
+  void setEmail(String email) {
+    this.email = email; //画面上のTechをTechとして認識
     notifyListeners();
   }
 
-  void setPassword(String password){
-    this.password = password;//画面上のStageをStageとして認識
+  void setPassword(String password) {
+    this.password = password; //画面上のStageをStageとして認識
     notifyListeners();
   }
 
-  Future signUp() async{
-    this.email=techController.text;
-    this.password=stageController.text;
+  Future signUp() async {
+    this.email = techController.text;
+    this.password = stageController.text;
 
-
-    if(email !=null && password !=null){
+    if (email != null && password != null) {
       //firebase authでユーザー作成
-      final userCredential =await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email:email!,password:password!);
-      final user=userCredential.user;
+      final userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email!, password: password!);
+      final user = userCredential.user;
 
-      if (user !=null){
-        final uid=user.uid;
+      if (user != null) {
+        final uid = user.uid;
 
         //firestoreに追加
-        final doc =FirebaseFirestore.instance.collection('users').doc(uid);
+        final doc = FirebaseFirestore.instance.collection('users').doc(uid);
         await doc.set({
-          'uid': uid,//画面上のTechをtechとして入力
-          'email': email,//画面上のStageをstageとして入力
+          'uid': uid, //画面上のTechをtechとして入力
+          'email': email, //画面上のStageをstageとして入力
         });
       }
     }

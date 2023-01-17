@@ -3,6 +3,8 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import 'Newbuildlistview.dart';
+
 void main() {
   runApp(
     const JobCalendarPage(),
@@ -82,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
             selectedDayPredicate: (day) {
               return isSameDay(_selected, day);
             },
+
             onDaySelected: (selected, focused) {
               if (!isSameDay(_selected, selected)) {
                 setState(
@@ -95,23 +98,11 @@ class _MyHomePageState extends State<MyHomePage> {
             focusedDay: _focused,
           ),
           //--追記--------------------------------------------------------------
-          NewbuildListView(getEvent)
+          NewbuildListView(getEvent: getEvent, _selected: _selected!)
+
           //--------------------------------------------------------------------
         ],
       ),
-    );
-  }
-
-  ListView NewbuildListView(List<dynamic> getEvent(DateTime day)) {
-    return ListView(
-      shrinkWrap: true,
-      children: getEvent(_selected!)
-          .map(
-            (event) => ListTile(
-              title: Text(event.toString()),
-            ),
-          )
-          .toList(),
     );
   }
 }
