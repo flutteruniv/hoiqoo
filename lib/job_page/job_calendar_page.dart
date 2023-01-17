@@ -28,7 +28,6 @@ class JobCalendarPage extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -98,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             focusedDay: _focused,
           ),
           //--追記--------------------------------------------------------------
-          NewbuildListView(getEvent: getEvent, _selected: _selected!)
+          NewbuildListView(getEvent: getEvent, selected: _selected!)
 
           //--------------------------------------------------------------------
         ],
